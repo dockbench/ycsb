@@ -18,5 +18,8 @@ RUN apt-get update -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+ENV MONGO_URL=mongodb://localhost:27017/ycsb?w=0
+VOLUME [ "/report" ]
+
 COPY ./docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
